@@ -1,0 +1,33 @@
+{
+	"allSkiDays": [
+		{
+			"resort": "Kirkwood",
+			"date": "2016-12-7",
+			"powder": true,
+			"backcountry": false
+		},
+		{
+			"resort": "Squaw Valley",
+			"date": "2016-12-8",
+			"powder": false,
+			"backcountry": false
+		},
+		{
+			"resort": "Mt Tallac",
+			"date": "2016-12-7",
+			"powder": false,
+			"backcountry": true
+		}
+	],
+	// additionally in state, we need a goal
+	"goal": 10,
+	// we also need something to hold errors
+	"errors": [],
+	// we need something to control our resort key auto suggestions
+	"resortNames": {
+		// are we currently fetching?
+		"fetching": false,
+		// what result names might have been returned from the server?
+		"suggestions": ["Squaw Valley", "Snowbird", "Stowe", "Steamboat"]
+	}
+}
