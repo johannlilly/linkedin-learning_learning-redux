@@ -57,8 +57,10 @@ export const fetching = (state=false, action) => {
       return true
     case C.CANCEL_FETCHING :
       return false
+    case C.CHANGE_SUGGESTIONS :
+      return false
     default :
-      return errors(null, action)
+      return state
   }
 
 }
@@ -67,10 +69,10 @@ export const suggestions = (state=[], action) => {
 
   switch(action.type) {
 
+    case C.CLEAR_SUGGESTIONS :
+      return []
     case C.CHANGE_SUGGESTIONS :
       return action.payload
-    case C.CLEAR_SUGGESTIONS :
-      return null
     default :
       return state
   }
