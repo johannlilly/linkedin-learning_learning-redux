@@ -8,7 +8,7 @@ export const goal = (state=10, action) => {
 
 	if (action.type === C.SET_GOAL) {
 		// return the new goal, which is in action.payload
-		return action.payload
+		return parseInt(action.payload)
 	} else {
 		// return original state
 		return state
