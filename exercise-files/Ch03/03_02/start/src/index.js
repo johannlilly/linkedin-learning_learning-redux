@@ -6,7 +6,7 @@ import { createStore } from 'redux'
 
 // CREATE
 // createStore expects one argument at minimum: the reducer function used by the store
-const store = createStore(appReduce, initialState)
+const store = createStore(appReducer, initialState)
 // now, the store holds state and manages state
 // sending the intial state to the store will set up the store initially with three ski days
 
