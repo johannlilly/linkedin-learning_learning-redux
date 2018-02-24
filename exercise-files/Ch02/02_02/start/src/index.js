@@ -13,7 +13,7 @@ const state = 10
 // actions, at minimum, are objects with a type field
 // it also needs to contain any information that's required to make the change, specifically, we need the new goal value
 // this action contains a state mutation where we change the goal, whatever its current value, to 15 
-const actions = {
+const action = {
 	// set the goal of the object, C, which contains the "actions" of our application
 	type: C.SET_GOAL,
 	payload: 15
