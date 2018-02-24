@@ -8,9 +8,9 @@ const state = [
 ]
 
 const action = {
-	type: C.ADD_ERROR,
+	type: C.CLEAR_ERROR,
 	// this time, the payload is the value of the error
-	payload: "cannot connect to server"
+	payload: 0
 }
 // we expect the next state to have a third error
 const nextState = errors(state, action)

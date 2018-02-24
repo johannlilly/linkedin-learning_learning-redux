@@ -24,6 +24,14 @@ export const errors = (state=[], action) => {
 				// plus another value, the action payload, which is the description of a new error 
 				action.payload
 			]
+		case C.CLEAR_ERROR : 
+			// filter() expects a callback function
+			// this callback function passes the error message and index so we can check the message
+			// it will be invoked once for every message in the array
+			// we call this particular function a Predicate because it expects true or false
+			// if it returns true, the message will be added to the array
+			// if it returns false, the message will be removed from the array
+			return state.filter((message, i) => i !== action.payload)
 		default : 
 			return state
 	}
