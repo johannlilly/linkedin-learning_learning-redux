@@ -1,47 +1,34 @@
 import C from './constants'
 import appReducer from './store/reducers'
 import initialState from './initialState.json'
+// createStore is used to build instances of Redux stores
+import { createStore } from 'redux'
 
-let state = initialState
+// CREATE
+// createStore expects one argument at minimum: the reducer function used by the store
+const store = createStore(appReducer)
+// now, the store holds state and manages state
 
-console.log(`
+// READ current state
+// you can look at the current state using getState()
+// by default, just using appReducer, our initial state will be created by all the default variables we created by every reducer
+console.log('initialState', store.getState())
+// the store will use the appReducer to help calculate the initial state
+// once every reducer is invoked once, the default value of that reducer will be saved as the initial state
 
-	Initial state
-	=============
-	goal: ${state.goal}
-	resorts: ${JSON.stringify(state.allSkiDays)}
-	fetching: ${state.resortNames.fetching}
-	suggestions: ${state.resortNames.suggestions}
-
-`)
-
-state = appReducer(state, {
-	type: C.SET_GOAL,
-	payload: 2
-})
-
-state = appReducer(state, {
+// UPDATE (mutate)
+// dispatch dispatches actions that mutates the state
+// this should add a ski day to the state of all ski days.
+store.dispatch({
 	type: C.ADD_DAY,
 	payload: {
-		"resort": "Mt Shasta",
+		"resort": "Mt Shashta",
 		"date": "2016-10-28",
 		"powder": false,
 		"backcountry": true
 	}
 })
 
-state = appReducer(state, {
-	type: C.CHANGE_SUGGESTIONS,
-	payload: ["Mt Tallac", "Mt Hood", "Mt Shasta"]
-})
+console.log('next state', store.getState())
 
-console.log(`
-
-	Next state
-	=============
-	goal: ${state.goal}
-	resorts: ${JSON.stringify(state.allSkiDays)}
-	fetching: ${state.resortNames.fetching}
-	suggestions: ${state.resortNames.suggestions}
-
-`)
+// 
