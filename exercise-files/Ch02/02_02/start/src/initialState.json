@@ -1,3 +1,6 @@
+// here is a snapshot of what the state could look like at a particular time in our application
+// we create a reducer to manage every key in this file
+// the reducer function will be named exactly the same thing as the key
 {
 	"allSkiDays": [
 		{
