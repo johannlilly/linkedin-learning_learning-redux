@@ -8,10 +8,10 @@ console.log(`
 	Ski Day Counter
 	===============
 	The goal is ${goal} days
-	Initially there are ${allSkiDays.length} in state
+	Initially there are ${allSkiDays.length} ski days in state
 
 	Constants (actions)
 	-------------------
-	${Object.keys(C).join('\n      ')}
+	${Object.keys(C).join('\n          ')}
 
 `)
