@@ -85,19 +85,13 @@ export const suggestions = (state=[], action) => {
 
 }
 
-const resortNames = combineReducers({
-  fetching,
-  suggestions
-)}
-
-// combine reducers into an object
-const singleReducer = combineReducers({
+export default combineReducers({
+  // combine in same shape as initialState.json
   allSkiDays,
   goals,
   errors,
-  // resortNames needs to combine a few reducers
-  resortNames  
-)}
-// the shape of singleReducer matches initialState.json
-
-export default singleReducer
+  resortNames: combineReducers({
+    fetching,
+    suggestions
+  })
+})
