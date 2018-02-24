@@ -1,4 +1,6 @@
 import C from './constants'
+// here, we are destructuring a goal import
+// in the reducers file, we need to export the goal reducer (a function)
 import { goal } from './store/reducers'
 
 // before you build the reducer, write code that will show how the reducer is supposed to work
