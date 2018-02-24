@@ -1,4 +1,5 @@
 import C from '../constants'
+import { combineReducers } from 'redux'
 
 export const goal = (state=10, action) => 
 	(action.type === C.SET_GOAL) ? 
@@ -84,3 +85,19 @@ export const suggestions = (state=[], action) => {
 
 }
 
+const resortNames = combineReducers({
+  fetching,
+  suggestions
+)}
+
+// combine reducers into an object
+const singleReducer = combineReducers({
+  allSkiDays,
+  goals,
+  errors,
+  // resortNames needs to combine a few reducers
+  resortNames  
+)}
+// the shape of singleReducer matches initialState.json
+
+export default singleReducer
