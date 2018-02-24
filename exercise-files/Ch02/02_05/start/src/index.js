@@ -4,7 +4,7 @@ import { allSkiDays } from './store/reducers'
 const state = [
 	{
 		"resort": "Kirkwood",
-		"date": "2016-13-15",
+		"date": "2016-12-15",
 		"powder": true,
 		"backcountry": false
 	}	
@@ -14,7 +14,7 @@ const action = {
 	type: C.ADD_DAY,
 	payload: {
 		"resort": "Boreal",
-		"date": "2016-12-16",
+		"date": "2016-12-15",
 		"powder": false,
 		"backcountry": false
 	}
