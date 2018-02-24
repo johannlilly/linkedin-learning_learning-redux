@@ -48,3 +48,35 @@ export const allSkiDays = (state=[], action) => {
   }
 
 }
+
+export const fetching = (state=false, action) => {
+
+  switch(action.type) {
+
+    case C.FETCH_RESORT_NAMES :
+      return true
+    case C.CANCEL_FETCHING :
+      return false
+    default :
+      return errors(null, action)
+  }
+
+}
+
+export const suggestions = (state=[], action) => {
+
+  switch(action.type) {
+
+    case C.CHANGE_SUGGESTIONS :
+      return action.payload
+    case C.CLEAR_SUGGESTIONS :
+      return null
+    default :
+      return state
+  }
+
+}
+
+
+
+
