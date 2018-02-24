@@ -54,9 +54,13 @@ export const allSkiDays = (state=[], action) => {
         skiDay(null, action)
       ]
 
+    case C.REMOVE_DAY :
+      // check date of each day
+      return state.filter(skiDay => skiDay.date !== action.payload)
 
     default:
-      state
+
+      return state
 
   }
 

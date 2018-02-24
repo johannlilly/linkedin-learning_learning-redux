@@ -7,17 +7,18 @@ const state = [
 		"date": "2016-12-15",
 		"powder": true,
 		"backcountry": false
-	}	
-]
-
-const action = {
-	type: C.ADD_DAY,
-	payload: {
+	},
+	{
 		"resort": "Boreal",
-		"date": "2016-12-15",
+		"date": "2016-12-16",
 		"powder": false,
 		"backcountry": false
 	}
+]
+
+const action = {
+	type: C.REMOVE_DAY,
+	payload: "2016-12-15" // the date we want to remove
 }
 
 const nextState = allSkiDays(state, action)
