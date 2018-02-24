@@ -1,19 +1,26 @@
 import C from './constants'
-import { goal } from './store/reducers'
+import { skiDay } from './store/reducers'
 
-const state = 10
+const state = null
 
 const action = {
-	type: C.SET_GOAL,
-	payload: 15
+	type: C.ADD_DAY,
+	// information for the new day record that we want
+	// the shape of this sample record matches the shape of a skiDay
+	payload: {
+		"resort": "Heavenly",
+		"date": "2016-12-16",
+		"powder": true,
+		"backcountry": false
+	}
 }
 
-const nextState = goal(state, action)
+const nextState = skiDay(state, action)
 
 console.log(`
 
-    initial goal: ${state}
+    initial state: ${state}
     action: ${JSON.stringify(action)}
-    new goal: ${nextState}
+    new state: ${JSON.stringify(nextState)}
 
 `)
