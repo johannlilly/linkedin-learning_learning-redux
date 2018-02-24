@@ -32,3 +32,26 @@ export const errors = (state=[], action) => {
   }
 
 }
+
+export const allSkiDays = (state=[], action) => {
+
+  switch(action.type) {
+
+    case C.ADD_DAY :
+
+      // this mutates the array
+      // return state.push()
+      return [
+        ...state,
+        // action.payload
+        // instead, use the existing reducer and action
+        skiDay(null, action)
+      ]
+
+
+    default:
+      state
+
+  }
+
+}
