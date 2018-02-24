@@ -1,19 +1,19 @@
 import C from './constants'
-import { skiDay } from './store/reducers'
+import { errors } from './store/reducers'
 
-const state = null
+const state = [
+	// sample error messages
+	"user not authorized",
+	"server feed not found"
+]
 
 const action = {
-	type: C.ADD_DAY,
-	payload: {
-		"resort": "Heavenly",
-		"date": "2016-12-16",
-		"powder": true,
-		"backcountry": false
-	}
+	type: C.ADD_ERROR,
+	// this time, the payload is the value of the error
+	payload: "cannot connect to server"
 }
-
-const nextState = skiDay(state, action)
+// we expect the next state to have a third error
+const nextState = errors(state, action)
 
 console.log(`
 
