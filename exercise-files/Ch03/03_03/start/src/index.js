@@ -1,12 +1,12 @@
 import C from './constants'
 import appReducer from './store/reducers'
-import initialState from './initialState.json'
+// import initialState from './initialState.json'
 import { createStore } from 'redux'
 
-const store = createStore(appReducer, initialState)
+const store = createStore(appReducer)
 
-console.log('initial state', store.getState())
-
+store.subscribe(() => console.log(store.getState()))
+// store has a subscribe method which allows you to subscribe callback handlers that are invoked every time state changes
 store.dispatch({
 	type: C.ADD_DAY,
 	payload: {
@@ -16,6 +16,3 @@ store.dispatch({
 		"backcountry": true
 	}
 })
-
-console.log('next state', store.getState())
-
