@@ -5,15 +5,23 @@ import { createStore } from 'redux'
 const store = createStore(appReducer)
 
 // logger to log goals
-store.subscribe(() => console.log(`    Goal: ${store.getState().goal}`))
+const unsubscribeGoalLogger = store.subscribe(
+	() => console.log(`    Goal: ${store.getState().goal}`)
+)
 
+// four times per second, we should see these goals being logged to the console
 setInterval(() => {
 
 	store.dispatch({
 		type: C.SET_GOAL,
-		payload: Math.random() * 100)
+		payload: Math.floor(Math.random() * 100)
 	})
 
 }, 250)
 
-// four times per second, we should see these goals being logged to the console
+setTimeout(() => {
+
+	unsubscribeGoalLogger();
+
+}, 3000)
+
