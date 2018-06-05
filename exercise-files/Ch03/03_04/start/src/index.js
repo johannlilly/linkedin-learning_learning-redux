@@ -2,17 +2,18 @@ import C from './constants'
 import appReducer from './store/reducers'
 import { createStore } from 'redux'
 
-const initialState = (localStorage['redux-store']) ?
-	JSON.parse(localStorage['redux-store']) :
-	{}
+const store = createStore(appReducer)
 
-const store = createStore(appReducer, initialState)
+// logger to log goals
+store.subscribe(() => console.log(`    Goal: ${store.getState().goal}`))
 
-window.store = store
+setInterval(() => {
 
-store.subscribe(() => {
+	store.dispatch({
+		type: C.SET_GOAL,
+		payload: Math.random() * 100)
+	})
 
-	const state = JSON.stringify(store.getState())
-  localStorage['redux-store'] = state
+}, 250)
 
-})
+// four times per second, we should see these goals being logged to the console
