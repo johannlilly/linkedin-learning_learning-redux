@@ -33,5 +33,9 @@ const consoleMessages = store => next => action => {
 }
 
 export default (initialState={}) => {
-	return createStore(appReducer, initialState)
+	// applyMiddleware() returns a function
+	// pass createStore function used to build our stores
+	return applyMiddleware(consoleMessages)(createStore)(appReducer, initialState)
 }
+
+// now, this file exports a function that we can use to create stores for the ski day counter
