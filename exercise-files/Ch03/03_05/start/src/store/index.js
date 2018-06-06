@@ -8,7 +8,7 @@ const consoleMessages = store => next => action => {
 	let result
 
 	console.groupCollapsed(`dispatching action => ${action.type}`)
-	console.log('ski days', store.getState.allSkiDays.length)
+	console.log('ski days', store.getState().allSkiDays.length)
 	result = next(action)
 
 	// after the above is dispatched, we can get information about the current state
