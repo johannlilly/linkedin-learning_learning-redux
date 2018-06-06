@@ -49,3 +49,25 @@ export const clearSuggestions = () =>
 
 
 
+
+// thunks don't return the action object directly
+// thunks return another function
+export const randomGoals = () => (dispatch, getState) => {
+	// we can control when we dispatch actions
+	// we can also get information about the present state with getState
+
+	if (!getState().resortNames.fetching) {
+		dispatch({
+			type: C.FETCH_RESORT_NAMES,
+
+		})
+		// after 1.5 seconds, dispatch another action
+		setTimeout(() => {
+			dispatch({
+				type: C.CANCEL_FETCHING
+			})
+		}, 1500)
+	}
+
+}
+
