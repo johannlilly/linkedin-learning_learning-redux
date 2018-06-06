@@ -1,16 +1,11 @@
-import C from './constants'
 import storeFactory from './store'
+import { addDay } from './actions'
 
 const store = storeFactory()
 
-const state = store.getState()
+// invoke action creator
 
-store.dispatch({
-	type: C.ADD_DAY,
-	payload: {
-		"resort": "Heavenly",
-		"date": "2016-12-22",
-		"powder": false,
-		"backcountry": false
-	}
-})
+store.dispatch(
+	// takes args required to add a ski day
+	addDay("Heavenly", "2016-12-22", true, false)
+)
