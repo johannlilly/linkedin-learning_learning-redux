@@ -21,7 +21,7 @@ window.React = React
 window.store = store
 
 render(
-	<Provider store={store}
+	<Provider store={store}>
 		{routes}
 	</Provider>,
   document.getElementById('react-container')
